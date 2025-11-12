@@ -1,13 +1,17 @@
-'use client'
+'use client';
 
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { ArrowRight, Github } from 'lucide-react'
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { ArrowRight } from 'lucide-react';
 
-export default function CTA() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+interface CTAProps {
+  onOpenWaitlist: () => void;
+}
+
+export default function CTA({ onOpenWaitlist }: CTAProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
     <section ref={ref} className="py-24 sm:py-32 bg-white">
@@ -70,22 +74,17 @@ export default function CTA() {
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={onOpenWaitlist}
+                aria-haspopup="dialog"
+                aria-controls="waitlist-modal"
                 className="group px-8 py-4 bg-white text-navy-900 rounded-lg font-semibold text-lg flex items-center gap-2 shadow-lg hover:shadow-2xl transition-shadow"
               >
-                <Github className="w-5 h-5" />
                 Sign up for the Waitlist
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </motion.button>
 
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold text-lg hover:bg-white/10 transition-colors"
-              >
-                Schedule a Demo
-              </motion.button>
             </motion.div>
 
             <motion.p
