@@ -75,7 +75,7 @@ export default function CTA() {
                 className="group px-8 py-4 bg-white text-navy-900 rounded-lg font-semibold text-lg flex items-center gap-2 shadow-lg hover:shadow-2xl transition-shadow"
               >
                 <Github className="w-5 h-5" />
-                Install GitHub App
+                Sign up for the Waitlist
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </motion.button>
 
