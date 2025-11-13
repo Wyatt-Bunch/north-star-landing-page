@@ -45,7 +45,7 @@ export default function Footer() {
 
           {/* Product Links */}
           <div>
-            <h4 className="font-semibold mb-4">Product</h4>
+            {/* <h4 className="font-semibold mb-4">Product</h4>
             <ul className="space-y-3">
               {navigation.product.map((item) => (
                 <li key={item.name}>
@@ -57,12 +57,12 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </div>
 
           {/* Company Links */}
           <div>
-            <h4 className="font-semibold mb-4">Company</h4>
+            {/* <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-3">
               {navigation.company.map((item) => (
                 <li key={item.name}>
@@ -74,12 +74,12 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </div>
 
           {/* Legal Links */}
           <div>
-            <h4 className="font-semibold mb-4">Legal</h4>
+            {/* <h4 className="font-semibold mb-4">Legal</h4>
             <ul className="space-y-3">
               {navigation.legal.map((item) => (
                 <li key={item.name}>
@@ -91,7 +91,7 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </div>
         </div>
 
@@ -101,7 +101,7 @@ export default function Footer() {
             © {new Date().getFullYear()} North*. All rights reserved.
           </p>
 
-          {/* Social Links */}
+          {/* Social Links
           <div className="flex gap-6">
             {navigation.social.map((item) => (
               <a
@@ -113,7 +113,7 @@ export default function Footer() {
                 <item.icon className="w-5 h-5" />
               </a>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

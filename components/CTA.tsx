@@ -93,7 +93,6 @@ export default function CTA({ onOpenWaitlist }: CTAProps) {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="mt-8 text-navy-300 text-sm"
             >
-              Free for open source projects • No credit card required
             </motion.p>
           </div>
         </motion.div>
