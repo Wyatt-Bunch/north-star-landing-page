@@ -14,7 +14,7 @@ export default function CTA({ onOpenWaitlist }: CTAProps) {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="py-24 sm:py-32 bg-white">
+    <section id="cta-section" ref={ref} className="py-24 sm:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

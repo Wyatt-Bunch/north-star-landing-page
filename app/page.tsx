@@ -1,6 +1,8 @@
 'use client';
 import { useState } from 'react';
 import Hero from '@/components/Hero';
+import Problem from '@/components/Problem';
+import TargetAudience from '@/components/TargetAudience';
 import HowItWorks from '@/components/HowItWorks';
 import Features from '@/components/Features';
 import CTA from '@/components/CTA';
@@ -14,6 +16,8 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Hero />
+      <Problem />
+      <TargetAudience />
       <HowItWorks />
       <Features />
       <CTA onOpenWaitlist={() => setOpen(true)} />

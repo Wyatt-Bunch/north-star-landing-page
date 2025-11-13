@@ -1,9 +1,26 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Github, CheckCircle2, Sparkles } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import { useState, useEffect } from 'react'
 
 export default function Hero() {
+  const [displayedText, setDisplayedText] = useState('')
+  const fullText = 'Documentation that writes itself'
+
+  useEffect(() => {
+    let index = 0
+    const timer = setInterval(() => {
+      if (index <= fullText.length) {
+        setDisplayedText(fullText.slice(0, index))
+        index++
+      } else {
+        clearInterval(timer)
+      }
+    }, 50)
+
+    return () => clearInterval(timer)
+  }, [])
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
       {/* Subtle gradient background */}
@@ -28,9 +45,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy-900 mb-6 text-balance max-w-4xl mx-auto leading-tight"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy-900 mb-6 text-balance max-w-4xl mx-auto leading-tight min-h-[1.2em]"
           >
-            Documentation that writes itself
+            {displayedText}
+            <span className="animate-pulse">|</span>
           </motion.h2>
 
           {/* Subheadline */}
@@ -40,7 +58,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl sm:text-2xl text-navy-600 mb-12 text-balance max-w-3xl mx-auto leading-relaxed"
           >
-            Automatically generate beautiful end-user documentation by visually analyzing your running application from every pull request.
+            Agentically generate and maintain documentation for your software.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -53,19 +71,24 @@ export default function Hero() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                document.getElementById('cta-section')?.scrollIntoView({ behavior: 'smooth' })
+              }}
               className="group px-8 py-4 bg-navy-900 text-white rounded-lg font-semibold text-lg flex items-center gap-2 shadow-lg hover:shadow-xl transition-shadow"
             >
-              <Github className="w-5 h-5" />
-              Install GitHub App
+              Get Started
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </motion.button>
 
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })
+              }}
               className="px-8 py-4 border-2 border-navy-900 text-navy-900 rounded-lg font-semibold text-lg hover:bg-navy-50 transition-colors"
             >
-              View Demo
+              See How It Works
             </motion.button>
           </motion.div>
 
