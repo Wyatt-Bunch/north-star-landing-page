@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
+import Logo from '@/assets/North_Star_Logo.png'
+
 export default function Hero() {
   const [displayedText, setDisplayedText] = useState('')
   const fullText = 'Documentation that writes itself'
@@ -35,6 +37,15 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
             className="mb-8"
           >
+            <motion.img 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            src={Logo.src}
+            alt="North* Logo"
+            className="w-16 h-16 mx-auto mb-4"
+            />
+              
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-navy-900 mb-2">
               North<span className="text-navy-500">*</span>
             </h1>

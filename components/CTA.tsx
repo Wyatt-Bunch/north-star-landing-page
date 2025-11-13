@@ -5,6 +5,8 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 
+import background from '@/assets/North_Star_Background.png'
+
 interface CTAProps {
   onOpenWaitlist: () => void;
 }
@@ -12,6 +14,15 @@ interface CTAProps {
 export default function CTA({ onOpenWaitlist }: CTAProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  const backgroundStyle = {
+    backgroundImage: `url(${background.src})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'top center',
+    backgroundRepeat: 'no-repeat',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)', 
+    backgroundBlendMode: 'multiply'
+  };
 
   return (
     <section id="cta-section" ref={ref} className="py-24 sm:py-32 bg-white">
@@ -21,14 +32,17 @@ export default function CTA({ onOpenWaitlist }: CTAProps) {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
           className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 px-8 py-20 sm:px-16 lg:px-24"
+          style={backgroundStyle}
         >
           {/* Background Pattern */}
+          {/*
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{
               backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
               backgroundSize: '40px 40px'
             }} />
           </div>
+          */}
 
           {/* Floating Orbs */}
           <motion.div
